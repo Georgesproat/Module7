@@ -1,35 +1,21 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useData } from "../hooks/useData";
+
 function ActivityFinder() {
-  // Fetches a random activity
   const [participants, setParticipants] = useState(1);
-  const [type, setType] = useState(1);
-  const [activity, setActivity] = useState("");
+  const [type, setType] = useState("recreational");
 
-  useEffect(() => {
-    let ignore = false;
-    fetch(
-      `https://www.boredapi.com/api/activity?participants=${participants}&type=${type}`
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json)
-        if(!ignore) {
-        if (json.error) setActivity(json.error)
-        else setActivity(json.activity);
-        }
-      });
 
-      normalVariable = 'updated re-rendered value'
+  // Use the custom hook to fetch and manage data
+  const activityObject = useData(
+    `https://www.boredapi.com/api/activity?participants=${participants}&type=${type}`
+  );
 
-       return function cleanUp() {
-         ignore = true;
-         console.log('cleanUp effect')
-       };
-  }, [participants, type]);
+  // Conditionally set activity based on API response
+  const activity = activityObject.error
+    ? activityObject.error
+    : activityObject.activity;
 
-  let normalVariable = 'standard variable with intial value';
-
- 
   return (
     <div className="ActivityFinder componentBox">
       <h3>Activity Finder</h3>
@@ -46,19 +32,16 @@ function ActivityFinder() {
       </label>
       <label>
         Choose Type:
-        <select 
-        value={type} 
-        onChange={(e) => setType(e.target.value)}
-        >
-          <option>recreational</option>
-          <option>cooking</option>
-          <option>social</option>
-          <option>relaxation</option>
+        <select value={type} onChange={(e) => setType(e.target.value)}>
+          <option value="recreational">Recreational</option>
+          <option value="cooking">Cooking</option>
+          <option value="social">Social</option>
+          <option value="relaxation">Relaxation</option>
         </select>
       </label>
       <div>
         <strong>Suggested Activity: </strong>
-        {activity} {normalVariable}
+        {activity}
       </div>
     </div>
   );

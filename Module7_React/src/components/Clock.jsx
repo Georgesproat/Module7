@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import { useUserContext } from "../context/UserContext";
 // Renders a digital time that updates every second
 function Clock() {
+  
   const [date, setDate] = useState(new Date());
   const [tickCount, setTickCount] = useState(0);
 
@@ -32,6 +33,7 @@ function Clock() {
 }
 
 function ClockDisplay() {
+  const { currentUser } = useUserContext();
   const [showClock, setShowClock] = useState(false);
 
   const toggleClock = () => {
@@ -40,6 +42,7 @@ function ClockDisplay() {
 
   return (
     <div className="ClockDisplay componentBox">
+      <p>Welcome {currentUser.name}!</p>
       {showClock && <Clock />}
       <button onClick={toggleClock}>Toggle Clock</button>
     </div>
