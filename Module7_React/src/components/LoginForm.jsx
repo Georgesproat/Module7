@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react"; 
 import { useUserContext } from "../context/UserContext";
-import ThemeSwitcher from "./ThemeSwitcher";
 import { MyThemeContext } from "../context/MyThemeContext";
 
 function LoginForm() {
@@ -39,7 +38,7 @@ function LoginForm() {
       className="LoginForm componentBox"
       style={{ background: theme.background, color: theme.foreground }}
     >
-      <ThemeSwitcher />
+      
       <form onSubmit={handleSubmit}>
         <div>
           <label>Name:</label>

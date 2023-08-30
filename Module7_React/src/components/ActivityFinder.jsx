@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import { useData } from "../hooks/useData";
+import { MyThemeContext } from "../context/MyThemeContext";
+import { useContext } from "react";
+
+
 
 function ActivityFinder() {
   const [participants, setParticipants] = useState(1);
   const [type, setType] = useState("recreational");
+  
 
-
-  // Use the custom hook to fetch and manage data
+  
   const activityObject = useData(
     `https://www.boredapi.com/api/activity?participants=${participants}&type=${type}`
   );
 
-  // Conditionally set activity based on API response
+  
   const activity = activityObject.error
     ? activityObject.error
     : activityObject.activity;
+    const { theme } = useContext(MyThemeContext);
 
   return (
-    <div className="ActivityFinder componentBox">
+    <div
+      className="ActivityFinder componentBox"
+      style={{ background: theme.background, color: theme.foreground }}
+    >
       <h3>Activity Finder</h3>
       <label>
         Choose number of participants:

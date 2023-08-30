@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useContext } from "react"; 
 import axios from "axios";
-import ThemeSwitcher from "./ThemeSwitcher";
 import { MyThemeContext } from "../context/MyThemeContext";
 
 export default function PostListReducer() {
@@ -30,7 +29,7 @@ export default function PostListReducer() {
       className="PostList componentBox"
       style={{ background: theme.background, color: theme.foreground }}
     >
-      <ThemeSwitcher />
+     
       {postsResult.loading ? (
         <div>Loading posts...</div>
       ) : (

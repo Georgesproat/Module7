@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useFormInput } from "../hooks/useFormInput";
+import { useContext } from "react";
+import { MyThemeContext } from "../context/MyThemeContext";
 
 export default function SubscribeForm() {
   const [status, setStatus] = useState("");
@@ -11,6 +13,7 @@ export default function SubscribeForm() {
   const [firstNameProps, firstNameReset] = useFormInput("Mary");
   const [emailProps, emailReset] = useFormInput("marypoppins.com");
   const [passwordProps, passwordReset] = useFormInput("password");
+  const { theme } = useContext(MyThemeContext);
   // similar handler functions
   //const handleNameChange = (e) => setFirstName(e.target.value);
   //const handleEmailChange = (e) => setEmail(e.target.value);
@@ -26,7 +29,10 @@ export default function SubscribeForm() {
   }
 
   return (
-    <div className="SubscribeForm componentBox">
+    <div
+      className="SubscribeForm componentBox"
+      style={{ backgroundColor: theme.background, color: theme.foreground }}
+    >
       <label>
         First name: {/* form inputs with similar props */}
         <input {...firstNameProps} />

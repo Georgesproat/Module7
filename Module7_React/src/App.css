@@ -41,12 +41,33 @@
   color: #888;
 }
 
-.componentBox { border: 1px solid #aaa; margin: 1em;
-padding: 1em; text-align: center; background: #04465b; 
+.componentBox {
+  border: 1px solid #aaa;
+  margin: 1em;
+  padding: 1em;
+  text-align: center;
+  background: #04465b;
 }
 
 .emoji-section,
 .currency-section,
 .bitcoin-price-section {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
+}
+
+.NavBar ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+.NavBar ul li a {
+  padding: 1em;
+  color: inherit;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+}
+.NavBar ul li a.active {
+  font-weight: bold;
 }
