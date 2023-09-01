@@ -22,6 +22,9 @@ export default function NavBar() {
         <li>
           <NavLink to="/bitcoin">Bitcoin</NavLink>
         </li>
+        <li>
+          <NavLink to="/MUIPage">MUI</NavLink>
+        </li>
 
         <ThemeSwitcher />
       </ul>

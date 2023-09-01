@@ -9,6 +9,7 @@ import LoginPage from "../pages/LoginPage";
 import { PostList } from "../pages/PostsPage";
 import { Post } from "../pages/PostsPage";
 import ProtectedRoute from "./ProtectedRoutes";
+import MUIPage from "../pages/MUIPage";
 
 function AppRoutes(props) {
   return (
@@ -25,6 +26,8 @@ function AppRoutes(props) {
       </Route>
 
       <Route path="/bitcoin" element={<BitcoinPage {...props} />} />
+      
+      <Route path="/MUIPage" element={<MUIPage {...props} />} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
