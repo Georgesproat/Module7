@@ -2,6 +2,7 @@ import BasicGrid from "../components/Basicgrid";
 import CustomCard from "../components/CustomCard";
 import MUIForm from "../components/MUIForm";
 import MUIDialog from "../components/MUIDialog";
+import ThemeApp from "../components/ThemeApp";
 
 export default function MUIPage() {
   // Save in pages/AboutPage.jsx
@@ -12,6 +13,7 @@ export default function MUIPage() {
       <BasicGrid />
       <MUIForm />
       <MUIDialog text="My first MUI Dialog" />
+      <ThemeApp/>
     </div>
   );
 }

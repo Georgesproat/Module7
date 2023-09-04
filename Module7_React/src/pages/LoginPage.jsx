@@ -1,4 +1,5 @@
 import LoginForm from "../components/LoginForm";
+import SignIn from "../components/SignIn";
 import SubscribeForm from "../components/SubscribeForm";
 import UserInfoForm from "../components/UserInfoForm";
 
@@ -9,6 +10,7 @@ export default function Loginpage() {
       <LoginForm />
       <SubscribeForm />
       <UserInfoForm />
+      <SignIn/>
     </div>
   );
 }
